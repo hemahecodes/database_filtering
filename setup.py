@@ -14,13 +14,8 @@ setup(
           'validators',
           'beautifulsoup4',
           'argparse',
-          'sys',
-          'csv',
           'pandas',
-          'os',
-          'shutil',
           'networkx',
-          'gzip'
       ],
   classifiers=[
     'Development Status :: 4 - Beta',
