@@ -136,7 +136,7 @@ def filter_mols(init_mol, ligands, outfile, linker):
     for mol in ligs:
         copy = Chem.EditableMol(mol)
         graph = generate_graph(bonds)
-        r_group, core, idx_linker_core, idx_linker_r_group = self.extract_core_and_r_group(init_mol, graph, linker)
+        r_group, core, idx_linker_core, idx_linker_r_group = extract_core_and_r_group(init_mol, graph, linker)
         matching = generate_matching(core,mol)
         substructure = mol.GetSubstructMatches(core)
         if len(substructure) > 2:
