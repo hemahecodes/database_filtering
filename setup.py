@@ -13,7 +13,17 @@ setup(
   install_requires=[
           'validators',
           'beautifulsoup4',
-          'rdkit'
+          'rdkit',
+          'argparse',
+          'glob',
+          'pickel',
+          'sys',
+          'csv',
+          'pandas',
+          'os',
+          'shutil',
+          'networkx',
+          'gzip
       ],
   classifiers=[
     'Development Status :: 4 - Beta',
