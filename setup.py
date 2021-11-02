@@ -8,7 +8,7 @@ setup(
   author = 'Helena Martín',
   author_email = 'helena.martin@nostrumbiodiscovery.com',
   url = 'https://github.com/hemahecodes/filtering',
-  download_url = 'https://github.com/hemahecodes/filtering/archive/v_01.tar.gz',
+  download_url = 'https://github.com/hemahecodes/filtering/archive/refs/tags/0.1.zip',
   keywords = ['filtering', 'database', 'rdkit'],   #
   install_requires=[
           'validators',
