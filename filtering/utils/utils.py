@@ -11,12 +11,8 @@ from rdkit.Chem.Draw import rdMolDraw2D
 from rdkit.Chem import rdMolTransforms
 from rdkit.Chem import rdDepictor
 from rdkit.Chem import PandasTools
-IPythonConsole.ipython_useSVG=True
 from rdkit.Chem import rdRGroupDecomposition
 from rdkit import RDLogger
-RDLogger.DisableLog('rdApp.warning')
-from IPython.display import display, Image
-from IPython.core.display import HTML
 from rdkit.Chem import Descriptors, QED, RDConfig, AllChem, rdFMCS, rdMolAlign, TemplateAlign
 
 
