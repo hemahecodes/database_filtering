@@ -14,8 +14,6 @@ setup(
           'validators',
           'beautifulsoup4',
           'argparse',
-          'glob',
-          'pickel',
           'sys',
           'csv',
           'pandas',
