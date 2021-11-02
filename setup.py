@@ -13,7 +13,6 @@ setup(
   install_requires=[
           'validators',
           'beautifulsoup4',
-          'rdkit',
           'argparse',
           'glob',
           'pickel',
