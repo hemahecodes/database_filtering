@@ -23,7 +23,7 @@ setup(
           'os',
           'shutil',
           'networkx',
-          'gzip
+          'gzip'
       ],
   classifiers=[
     'Development Status :: 4 - Beta',
