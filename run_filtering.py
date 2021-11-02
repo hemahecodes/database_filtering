@@ -3,7 +3,7 @@ import glob
 import pickle
 import sys
 import csv
-from r_groups.utils import filter_mols
+from filtering.utils import filter_mols
 
 def parse_args(args):
     parser = ap.ArgumentParser()
