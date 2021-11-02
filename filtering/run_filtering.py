@@ -3,6 +3,7 @@ import glob
 import pickle
 import sys
 import csv
+import filtering
 from filtering.utils import filter_mols
 
 def parse_args(args):
