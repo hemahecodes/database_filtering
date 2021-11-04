@@ -57,24 +57,29 @@ def check_connections_to_core(ligand,ligand_idx_allowed, idx_core_ligand):
 
 
 def filter_mols(init_mol, ligands, outfile, linker):
-    ligs = Chem.SDMolSupplier(ligands)
     init_mol = Chem.MolFromPDBFile(init_mol, removeHs=True)
     output = []
-    for mol in ligs:
-        copy = Chem.EditableMol(mol)
-        substructure = mol.GetSubstructMatches(init_mol)
-        if len(substructure) > 2:
-            print('More than one substructure match for ligand %s, skipping.' % mol.GetProp("_Name"))
-            continue
-        if substructure:
-            ligand_idx_allowed, idx_core_ligand = get_allowed_r_groups(init_mol,mol,linker)
-            if check_connections_to_core(mol, ligand_idx_allowed,idx_core_ligand):
-                mol = copy.GetMol()
-                output.append(mol)
+    for file in ligands:
+        ligs = Chem.SDMolSupplier(file)
+        for mol in ligs:
+            if mol:
+                copy = Chem.EditableMol(mol)
             else:
-                print('Molecule %s did not meet the R-groups requirements.' % mol.GetProp("_Name"))
-        else:
-            print('No substructure match for ligand %s, skipping' % mol.GetProp("_Name"))
+                print('Failed to load molecule')
+                continue
+            substructure = mol.GetSubstructMatches(init_mol)
+            if len(substructure) > 2:
+                print('More than one substructure match for molecule %s, skipping.' % mol.GetProp("_Name"))
+                continue
+            if substructure:
+                ligand_idx_allowed, idx_core_ligand = get_allowed_r_groups(init_mol,mol,linker)
+                if check_connections_to_core(mol, ligand_idx_allowed,idx_core_ligand):
+                    mol = copy.GetMol()
+                    output.append(mol)
+                else:
+                    print('Molecule %s did not meet the R-groups requirements.' % mol.GetProp("_Name"))
+            else:
+                print('No substructure match for molecule %s, skipping' % mol.GetProp("_Name"))
     save_results(outfile,output)
 
 def save_results(out, output):

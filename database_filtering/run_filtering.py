@@ -1,4 +1,5 @@
 import argparse as ap
+import os
 import glob
 import pickle
 import sys
@@ -23,16 +24,14 @@ if __name__ == '__main__':
     ligands_path = args.ligands
     outfile= args.outfile
     linker = args.atom_linker
-    dirs = glob.glob(ligands_path + "/*")
+    dirs = glob.glob(ligands_path + "/*.sd")
     ligands=[]
     i=0
-    '''
     while i < len(dirs):
         if os.path.isdir(dirs[i]):
             dirs = dirs + glob.glob(dirs[i] + "/*")
         else:
             if os.path.splitext(dirs[i])[1] == '.sd' or os.path.splitext(dirs[i])[1] == ".sdf":
                 ligands.append(dirs[i])
-        i+=1'''
-    #pipeline = args.type
-    filter_mols(template_lig,ligands_path,outfile,linker)
+        i+=1
+    filter_mols(template_lig,ligands,outfile,linker)
