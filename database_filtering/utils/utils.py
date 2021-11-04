@@ -29,10 +29,11 @@ def generate_matching(init_mol, ligand):
 def get_allowed_r_groups(init_mol, ligand, linker):
     matching = generate_matching(init_mol, ligand)
     idx_atoms_core_ligand = []
+    idx_ligand = []
     for pair in matching:
         idx_atoms_core_ligand.append(pair[1])
         if init_mol.GetAtomWithIdx(pair[0]).GetPDBResidueInfo().GetName().strip() == linker.strip():
-            idx_ligand = pair[1]
+            idx_ligand.append(pair[1])
     return idx_ligand, idx_atoms_core_ligand
 
 def check_connections_to_core(ligand,ligand_idx_allowed, idx_core_ligand):
