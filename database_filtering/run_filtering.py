@@ -13,7 +13,7 @@ def parse_args(args):
     parser.add_argument("-l","--ligands", type=str, required=True,
                         help="Path to SDF file with ligands.")
     parser.add_argument("-o", "--outfile", required=True, help="Output file name.")
-    parser.add_argument("-a", "--atom_linker", nargs ='+', required = True, help = " Carbon atom of core that is bound to r-group.")
+    parser.add_argument("-a", "--atom_linker", required = True, help = " Carbon atom of core that is bound to r-group.")
     parsed_args = parser.parse_args(args)
     return parsed_args
 
