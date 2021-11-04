@@ -1,8 +1,8 @@
 from distutils.core import setup
 setup(
   name = 'database_filtering',
-  packages = ['database_filtering'],
-  version = '0.1',
+  packages = ['database_filtering', 'database_filtering/utils'],
+  version = '1.1.0',
   license='MIT',
   description = 'Filter database with r_group specification.',
   author = 'Helena Martín',
