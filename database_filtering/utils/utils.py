@@ -26,17 +26,19 @@ def generate_matching(init_mol, ligand):
         match = None
     return match
 
-def get_allowed_r_groups(init_mol, ligand, linker):
+def get_allowed_r_groups(init_mol, ligand, linkers):
     matching = generate_matching(init_mol, ligand)
     idx_atoms_core_ligand = []
     idx_ligand = []
-    for pair in matching:
-        idx_atoms_core_ligand.append(pair[1])
-        if init_mol.GetAtomWithIdx(pair[0]).GetPDBResidueInfo().GetName().strip() == linker.strip():
-            idx_ligand.append(pair[1])
+    for linker in linkers:
+        for pair in matching:
+            idx_atoms_core_ligand.append(pair[1])
+            if init_mol.GetAtomWithIdx(pair[0]).GetPDBResidueInfo().GetName().strip() == linker.strip():
+                idx_ligand.append(pair[1])
     return idx_ligand, idx_atoms_core_ligand
 
 def check_connections_to_core(ligand,ligand_idx_allowed, idx_core_ligand):
+    filter = []
     for bond in ligand.GetBonds():
         if bond.GetBeginAtomIdx() in idx_core_ligand and bond.GetEndAtomIdx() not in idx_core_ligand:
             if bond.GetBeginAtomIdx() in ligand_idx_allowed:
