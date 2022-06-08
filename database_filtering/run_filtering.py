@@ -24,7 +24,7 @@ if __name__ == '__main__':
     ligands_path = args.ligands
     outfile= args.outfile
     linker = args.atom_linker
-    dirs = glob.glob(ligands_path + "/*.sd")
+    dirs = glob.glob(ligands_path + "/*.sd*")
     ligands=[]
     i=0
     while i < len(dirs):
