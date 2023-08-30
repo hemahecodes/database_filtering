@@ -1,0 +1,5 @@
+validators
+beautifulsoup4
+argparse
+pandas
+networkx
